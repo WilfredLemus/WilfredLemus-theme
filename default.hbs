@@ -25,7 +25,8 @@
 
     {{> custom/meta this}}
 
-    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"> -->
+    <link rel="shortcut icon" href="{{asset "/favicon.ico"}}">
     <link href="/apple-touch-icon-precomposed.png" rel="apple-touch-icon">
 
     <link href="//fonts.googleapis.com/" rel="dns-prefetch">
@@ -96,6 +97,19 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
       }
+
+      $(document).ready(function(){
+          $(window).scroll(function () {
+                // console.log("scroll="+$(window).scrollTop());
+            if ($(window).scrollTop() > 0) {
+                $('#FixNav').css('top', $(window).scrollTop());
+            }
+            if ($(window).scrollTop() == 0) {
+                // console.log('Entro');
+                $('#FixNav').css('top', '0px');
+            }
+          });
+      });
     </script>
   </body>
 </html>
